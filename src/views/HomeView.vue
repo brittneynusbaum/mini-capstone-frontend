@@ -1,20 +1,23 @@
-<script>
-export default {
-  data: function () {
-    return {
-      message: "Welcome to Vue.js!",
-    };
-  },
-  created: function () { },
-  methods: {},
-};
-</script>
-
 <template>
-  <div class="home">
-    <h1>{{ message }}</h1>
+  <div>
+    <VueMultiselect v-model="selected" :options="options" :close-on-select="true" :clear-on-select="false"
+      placeholder="Select one" label="name" track-by="name">
+    </VueMultiselect>
   </div>
 </template>
 
-<style>
+<script>
+import VueMultiselect from 'vue-multiselect'
+export default {
+  components: { VueMultiselect },
+  data() {
+    return {
+      selected: null,
+      options: ['list', 'of', 'options']
+    }
+  }
+}
+</script>
+
+<style src="vue-multiselect/dist/vue-multiselect.css">
 </style>
